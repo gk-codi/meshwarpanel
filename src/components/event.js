@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { Button } from "primereact/button";
+import { API_URL } from '../constants';
+
 class event extends Component {
   constructor(props) {
     super(props);
@@ -38,7 +40,7 @@ class event extends Component {
         <div className="p-col-12 p-md-3">
           <img
             style={{ width: "200px" }}
-            src={`http://localhost:8080/images/${this.props.data.image_src}`}
+            src={`${API_URL}/images/${this.props.data.image_src}`}
             alt="image"
           />
         </div>
@@ -97,7 +99,7 @@ class event extends Component {
         <div className="p-col-12 p-md-3">
           <img
             style={{ width: "200px" }}
-            src={`http://localhost:8080/images/${this.props.data.image_src}`}
+            src={`${API_URL}/images/${this.props.data.image_src}`}
             alt="image"
           />
         </div>

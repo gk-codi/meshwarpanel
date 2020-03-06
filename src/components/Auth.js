@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { API_URL } from '../constants'
 import './Auth.css'
 
 class Auth extends Component {
@@ -6,8 +7,8 @@ class Auth extends Component {
         super(props)
         this.state = {
             email: null,
-            password: null, 
-            error:"", 
+            password: null,
+            error:"",
             login:false
         }
     }
@@ -18,7 +19,7 @@ class Auth extends Component {
             const body = new FormData();
             body.append('email', this.state.email);
             body.append('password', this.state.password);
-            const response = await fetch('http://localhost:8080/api/user/login', {
+            const response = await fetch(`${API_URL}/api/user/login`, {
                 method: `POST`,
                 body: body
             });

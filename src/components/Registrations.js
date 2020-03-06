@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Button } from "primereact/button";
 
+import { API_URL } from '../constants'
+
 class Registrations extends Component {
     state = {
         registrations: [],
@@ -11,7 +13,7 @@ class Registrations extends Component {
         console.log(this.state.registrations[0].event_id)
         let body = new FormData();
         body.append('event_id', this.state.registrations[0].event_id);
-        let response = await fetch(`http://localhost:8080/deleteregistration/${id}`, {
+        let response = await fetch(`${API_URL}/deleteregistration/${id}`, {
             method: `DELETE`,
             body: body
         })
@@ -32,7 +34,7 @@ class Registrations extends Component {
 
 
     getRegistrations = async () => {
-        const response = await fetch('http://localhost:8080/registrations');
+        const response = await fetch(`${API_URL}/registrations`);
         const result = await response.json();
         this.setState({ registrations: result.result });
     }
